@@ -51,5 +51,6 @@ document.getElementById("copy-source").addEventListener("click",async()=>{try{if
 document.getElementById("download-source").addEventListener("click",()=>downloadBlob(new Blob([data.sources[language][selectedFile]],{type:"text/plain;charset=utf-8"}),selectedFile));
 document.getElementById("game-frame").addEventListener("load",sendLanguage);
 document.getElementById("game-frame").srcdoc=data.games.en;
-setLanguage("en");
+const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+setLanguage(requestedLanguage === "id" ? "id" : "en");
 </script></body></html>
